@@ -10,12 +10,13 @@ class Game
 		unordered_map<int, unordered_set<char>> rows, cols, subBoxes;
 		int markedCounter = 0;
 		int size = 0;
-		vector<vector<char>> board;
+		char** board = nullptr;
 		void init();
-		void checkValidMark(int x, int y, char val);
+		bool checkValidMark(int x, int y, char val);
 		bool gameOver();
 		void checkValidBoardSize(int size);
 		void draw();
+		void teardown();
 	public:
 		void play(int size = 9);
 		void changeSize(int newSize);
