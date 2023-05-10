@@ -31,7 +31,6 @@ void Game::init()
 
 bool Game::gameOver()
 {
-	cout << markedCounter << " " << size*size << endl;
 	return markedCounter == (size*size);
 }
 
@@ -52,13 +51,19 @@ void Game::checkValidBoardSize(int size)
 
 void Game::draw()
 {
-	for (int i = 0; i < size; i++)
-	{
-		for (int j = 0; j < size; j++)
-		{
+	cout << "------- SUDOKU -------" << endl;
+	cout << endl;
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
 			cout << board[i][j] << " ";
+			if ((j + 1) % 3 == 0 && j < size - 1) {
+				cout << "| ";
+			}
 		}
 		cout << endl;
+		if ((i + 1) % 3 == 0 && i < size - 1) {
+			cout << "---------------------" << endl;
+		}
 	}
 }
 
@@ -69,7 +74,6 @@ void Game::play(int size)
 
 	while (!gameOver())
 	{
-		cout << "--- SUDOKU ---" << endl;
 		draw();
 		int x, y;
 		char val;
