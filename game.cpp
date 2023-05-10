@@ -52,16 +52,16 @@ void Game::checkValidBoardSize(int size)
 void Game::draw()
 {
 	cout << "------- SUDOKU -------" << endl;
-	cout << endl;
+	int boxDiv = size / 3;
 	for (int i = 0; i < size; i++) {
 		for (int j = 0; j < size; j++) {
 			cout << board[i][j] << " ";
-			if ((j + 1) % 3 == 0 && j < size - 1) {
+			if ((j + 1) % boxDiv == 0 && j < size - 1) {
 				cout << "| ";
 			}
 		}
 		cout << endl;
-		if ((i + 1) % 3 == 0 && i < size - 1) {
+		if ((i + 1) % boxDiv == 0 && i < size - 1) {
 			cout << "---------------------" << endl;
 		}
 	}
